@@ -6,7 +6,8 @@ let AddTodo = ({ dispatch }) => {
   let input;
 
   return (
-    <div>
+    <header className="header">
+      <h1>todos</h1>
       <form onSubmit={e => {
           e.preventDefault();
 
@@ -17,14 +18,13 @@ let AddTodo = ({ dispatch }) => {
             input.value = '';
           }
         }}>
-        <input ref={node => {
-            input = node;
-          }} />
-        <button type="submit">
-          Add Todo
-        </button>
+        <input
+          ref={node => input = node }
+          className="new-todo"
+          placeholder="What needs to be done?"
+        />
       </form>
-    </div>
+    </header>
   );
 };
 AddTodo = connect()(AddTodo);

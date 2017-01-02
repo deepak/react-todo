@@ -1,6 +1,9 @@
 # React Todo
 
-Todo app copied from the [redux examples](http://redux.js.org/docs/basics/ExampleTodoList.html)
+Todo app copied from various places:
+
+- js from the [redux examples](http://redux.js.org/docs/basics/ExampleTodoList.html)
+- css from the [todomvc](http://todomvc.com/examples/react/)
 
 # Development
 

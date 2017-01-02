@@ -1,20 +1,19 @@
 import React, { PropTypes } from 'react';
 
 const Link = ({ active, children, onClick }) => {
-  if (active) {
-    return (<span>{children}</span>);
-  } else {
-    return (
+  return (
+    <li>
       <a href="#"
         onClick={e => {
             e.preventDefault();
             onClick();
           }}
+        className={active ? "selected" : "not-selected"}
       >
         {children}
       </a>
-    );
-  }
+    </li>
+  );
 };
 
 Link.propTypes = {

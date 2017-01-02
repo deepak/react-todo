@@ -7,7 +7,9 @@ const Todo = ({ onClick, completed, text }) => (
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
-    {text}
+    <div className="view">
+      <label>{text}</label>
+    </div>
   </li>
 );
 

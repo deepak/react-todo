@@ -46,8 +46,16 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: PATHS.node_modules, loader: "babel-loader" }
+      { test: /\.jsx?$/, exclude: PATHS.node_modules, loader: "babel-loader" },
+      {
+        test: /\.scss$/,
+        exclude: PATHS.node_modules, // sassLoader will include node_modules explicitly
+        loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+      },
     ]
+  },
+  sassLoader: {
+    includePaths: [PATHS.node_modules]
   },
   plugins: plugins
 };

@@ -2,15 +2,19 @@ import React, { PropTypes } from 'react';
 import Todo from './Todo.jsx';
 
 const TodoList = ({ todos, onTodoClick }) => (
-  <ul>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => onTodoClick(todo.id)}
-      />
-     )}
-  </ul>
+  <section className="main">
+    <ul className="todo-list">
+      {
+        todos.map(todo =>
+          <Todo
+            key={todo.id}
+            {...todo}
+            onClick={() => onTodoClick(todo.id)}
+          />
+        )
+      }
+    </ul>
+  </section>
 );
 
 TodoList.propTypes = {
