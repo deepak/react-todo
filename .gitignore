@@ -1,0 +1,22 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+# and https://github.com/github/gitignore/blob/master/Node.gitignore for an example
+
+# dependencies
+node_modules
+
+# build to distribute
+build
+
+# Apple OSX finder
+*.DS_Store
+
+# Temporary emacs files
+*~
+\#*\#
+.\#*
+
+# misc
+npm-debug.log
+yarn-error.log
+.env
+.eslintcache
