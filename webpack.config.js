@@ -2,6 +2,7 @@
 var path = require('path'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     PATHS = {
       src: path.join(__dirname, 'src'),
       build: path.join(__dirname, 'build'),
@@ -9,6 +10,7 @@ var path = require('path'),
     };
 
 const plugins = [
+  new ExtractTextPlugin("components.css"),
   new HtmlWebpackPlugin({
     title: 'TODO',
     inject: true, // all javascript resources will be placed at the bottom of the body element
@@ -52,6 +54,11 @@ module.exports = {
         exclude: PATHS.node_modules, // sassLoader will include node_modules explicitly
         loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
       },
+      {
+        test: /\.css$/,
+        include: PATHS.src,
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+      }
     ]
   },
   sassLoader: {
