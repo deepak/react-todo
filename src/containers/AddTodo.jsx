@@ -21,7 +21,7 @@ let AddTodo = ({ dispatch }) => {
         }}>
         <input
           ref={node => input = node }
-          className="new-todo"
+          className={styles["new-todo"]}
           placeholder="What needs to be done?"
         />
       </form>

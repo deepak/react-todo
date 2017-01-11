@@ -57,7 +57,7 @@ module.exports = {
       {
         test: /\.css$/,
         include: PATHS.src,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&sourceMap')
       }
     ]
   },
