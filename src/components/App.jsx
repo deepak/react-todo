@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import Footer from './Footer.jsx';
 import AddTodo from '../containers/AddTodo.jsx';
 import VisibleTodoList from '../containers/VisibleTodoList.jsx';
-const { ipcRenderer } = require('electron');
-
-const fileContent = require('fs')
-  .readFileSync("/tmp/foo.txt", {
-    encoding: "UTF8"
-  })
-  .toString();
-console.log("fileContent is: ", fileContent);
 
 class Ping extends Component {
   constructor(props) {
@@ -21,14 +13,25 @@ class Ping extends Component {
   }
 
   onClick() {
-    ipcRenderer.send('ping');
+    const { active } = this.state;
 
-    ipcRenderer.on('ping-reply', (event, arg) => {
-      console.log("replied with: ", arg); // prints "pong"
-      this.setState({
-        active: !this.state.active
+    fetch("http://localhost:8080/")
+      .then(resp => {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          return Promise.reject("API is down");
+        }
+      })
+      .then(json => {
+        this.setState({
+          active: !active
+        });
+        console.log(`data is: `, json);
+      })
+      .catch(err => {
+        console.error("API returned an error: ", err);
       });
-    });
   }
 
   render() {
@@ -39,7 +42,7 @@ class Ping extends Component {
         <button
           onClick={(e) => this.onClick(e) }
         >
-          {fileContent}
+          PING
         </button>
       </div>
     );
