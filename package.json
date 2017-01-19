@@ -16,6 +16,7 @@
   "author": "Deepak Kannan",
   "license": "MIT",
   "dependencies": {
+    "is-electron": "^2.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",

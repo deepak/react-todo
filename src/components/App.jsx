@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from './Footer.jsx';
 import AddTodo from '../containers/AddTodo.jsx';
 import VisibleTodoList from '../containers/VisibleTodoList.jsx';
+import isElectron from 'is-electron';
 
 class Ping extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Ping extends Component {
 
 const App = () => (
   <div>
-    <Ping />
+    { isElectron() ? <Ping /> : null }
     <AddTodo />
     <VisibleTodoList />
     <Footer />
