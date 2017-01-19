@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 
 import todoApp from './reducers';
+import Switcher from './components/Switcher.jsx';
 import App from './components/App.jsx';
 import About from './components/About.jsx';
 import { dispatchTodos, addTodo } from './actions';
@@ -38,8 +39,9 @@ function onAppInit(dispatch) {
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
+      <Route path="/" component={Switcher}/>
       <Route path="/about" component={About}/>
-      <Route path="/" component={App} onEnter={onAppInit(store.dispatch)}/>
+      <Route path="/todo" component={App} onEnter={onAppInit(store.dispatch)}/>
     </Router>
   </Provider>,
   document.getElementById('root')
