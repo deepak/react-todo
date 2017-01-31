@@ -15,6 +15,7 @@ class Switcher extends Component {
       <div>
         <ul>
           <li><Link to="/about">About</Link></li>
+          <li><Link to="/scrape">Scrape</Link></li>
           <li><Link to="/todo">Todo</Link></li>
         </ul>
       </div>

@@ -9,6 +9,7 @@ import todoApp from './reducers';
 import Switcher from './components/Switcher.jsx';
 import App from './components/App.jsx';
 import About from './components/About.jsx';
+import Scrape from './components/Scrape.jsx';
 import { dispatchTodos, addTodo } from './actions';
 import './css/main.scss';
 
@@ -41,6 +42,7 @@ render(
     <Router history={browserHistory}>
       <Route path="/" component={Switcher}/>
       <Route path="/about" component={About}/>
+      <Route path="/scrape" component={Scrape}/>
       <Route path="/todo" component={App} onEnter={onAppInit(store.dispatch)}/>
     </Router>
   </Provider>,
