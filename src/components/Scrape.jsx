@@ -26,7 +26,9 @@ class Scrape extends Component {
   }
 
   fetchCaptcha() {
-    fetch("http://localhost:8080/", { method: 'GET', cache: 'no-store' })
+    const { url } = this.state;
+
+    fetch(`http://localhost:8080/?url=${url}`, { method: 'GET', cache: 'no-store' })
       .then(resp => resp.ok ? resp.json() : Promise.reject("API is down"))
       .then(json => {
         this.setState({
@@ -41,7 +43,7 @@ class Scrape extends Component {
   submitCaptcha() {
     const { captcha } = this.state;
 
-    fetch("http://localhost:8080/", { method: 'POST', cache: 'no-store', body: { captcha: captcha } })
+    fetch(`http://localhost:8080/?captcha=${captcha}`, { method: 'POST', cache: 'no-store' })
       .then(resp => resp.ok ? resp.json() : Promise.reject("API is down"))
       .then(json => {
         console.log(`result is: ${JSON.stringify(json)}`);
