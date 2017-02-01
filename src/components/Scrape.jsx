@@ -5,7 +5,7 @@ class Scrape extends Component {
     super(props);
 
     this.state = {
-      url: null,
+      tan: null,
       captchaImage: null,
       captcha: null,
       result: null
@@ -26,9 +26,9 @@ class Scrape extends Component {
   }
 
   fetchCaptcha() {
-    const { url } = this.state;
+    const { tan } = this.state;
 
-    fetch(`http://localhost:8080/?url=${url}`, { method: 'GET', cache: 'no-store' })
+    fetch(`http://localhost:8080/?tan=${tan}`, { method: 'GET', cache: 'no-store' })
       .then(resp => resp.ok ? resp.json() : Promise.reject("API is down"))
       .then(json => {
         this.setState({
@@ -74,13 +74,13 @@ class Scrape extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <label>
-            URL
+            TAN
 
             <input
               type="text"
-              name="url"
+              name="tan"
               onChange={this.onChange}
-              placeholder="Please enter a url to scrape"
+              placeholder="Please enter a TAN to scrape"
             />
           </label>
 
